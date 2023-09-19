@@ -1,12 +1,7 @@
 #!/usr/bin/node
-const fetch = require("node-fetch");
+const request = require('request');
+const myRequest = new Request(process.argv[2]);
 
-async function makeRequest() {
-    try {
-        const response = await fetch(`${process.argv[2]}`);
-        console.log(response.status);
-    } catch (err) {
-        console.log(err);
-    }
-}
-makeRequest()
+fetch(myRequest).then((response) => {
+    console.log(response.status);
+})
