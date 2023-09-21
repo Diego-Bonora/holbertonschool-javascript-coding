@@ -1,7 +1,8 @@
 #!/usr/bin/node
-const request = require('request');
-const myRequest = new Request(process.argv[2]);
+const axios = require('axios');
+const url = process.argv[2];
 
-fetch(myRequest).then((response) => {
-    console.log(response.status);
+axios.get(url).then((response) => {
+    console.log(`code: ${response.status}`);
 })
+    .catch(err => console.log(`code: 404`));
